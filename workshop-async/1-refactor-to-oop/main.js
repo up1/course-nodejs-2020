@@ -1,5 +1,5 @@
-const Customer = require('./customer.js')
-const kitchen = require('./kitchen.js')
+const Customer = require("./customer.js");
+const kitchen = require("./kitchen.js");
 
 const serve = (customer, menu, done) => {
   console.log(`Start serve with ${customer.name} with menu= ${menu}`);
@@ -19,7 +19,7 @@ const serve = (customer, menu, done) => {
 // Start to serve to all customers
 const menus = ["Beer", "Chicken grill", "Ham burger"];
 for (let index = 1; index <= 5; index++) {
-  const customer = new Customer(index, `customer_${index}`)
+  const customer = new Customer(index, `customer_${index}`);
   serve(customer, menus[index % menus.length], (error, menu) => {
     console.log(`>> Done for customer=${customer.name} with food=${menu}`);
   });
