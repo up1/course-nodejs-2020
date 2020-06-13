@@ -33,7 +33,7 @@ for (let index = 1; index <= 5; index++) {
     id: index,
     name: `customer_${index}`,
   };
-  serve(customer, menus[index % menus.length], () => {
-    console.log(`>> Done for customer${customer.name}`);
+  serve(customer, menus[index % menus.length], (error, menu) => {
+    console.log(`>> Done for customer=${customer.name} with food=${menu}`);
   });
 }
