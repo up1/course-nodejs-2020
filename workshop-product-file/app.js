@@ -26,4 +26,29 @@ yargs.command({
   },
 });
 
+// Create list command
+yargs.command({
+  command: "list",
+  describe: "List all products",
+  handler(argv) {
+    productService.listAll();
+  },
+});
+
+// Create get by id command
+yargs.command({
+    command: "get",
+    describe: "Add a new product",
+    builder: {
+      id: {
+        describe: "Product ID",
+        demandOption: true,
+        type: "string",
+      }
+    },
+    handler(argv) {
+      productService.getById(argv.id);
+    },
+  });
+
 yargs.parse();
