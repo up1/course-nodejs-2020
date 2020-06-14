@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "API_URL=http://localhost:9999 jest"
+    "test": "API_URL=http://localhost:9999 jest --coverage"
   },
   "author": "",
   "license": "ISC",
@@ -14,5 +14,9 @@
   "devDependencies": {
     "jest": "^26.0.1",
     "nock": "^12.0.3"
-  }
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": ["json", "html"]
+}
 }
