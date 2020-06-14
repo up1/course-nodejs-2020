@@ -4,6 +4,8 @@
  *
  * It is important to note that destructuring does not remove properties or values from the original object or array.
  * It merely copies it.
+ * 
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
  */
 
 // Swap
