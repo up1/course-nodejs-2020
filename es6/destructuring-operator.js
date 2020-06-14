@@ -1,0 +1,35 @@
+/**
+ * Destructuring operator
+ * Making a copy of individual items from an object or an array and assigning them to a variable
+ *
+ * It is important to note that destructuring does not remove properties or values from the original object or array.
+ * It merely copies it.
+ */
+
+// Swap
+let a = 1;
+let b = 2;
+[b, a] = [a, b];
+console.log(a, b);
+
+// Array
+const numbers = [1, 2, 3];
+const [first, , third] = numbers;
+console.log(first, third);
+
+// Object
+const user = {
+  id: 1,
+  name: "somkiat",
+  age: 30,
+};
+
+var { name, age, address } = user;
+console.log(name, age, address);
+
+// Rest operator
+const [_first, ...restNumber] = numbers;
+console.log(_first, restNumber);
+
+var { age, ...restUser } = user;
+console.log(age, restUser);
