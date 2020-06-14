@@ -12,7 +12,7 @@ let b = 2;
 [b, a] = [a, b];
 console.log(a, b);
 
-// Array
+// Arrays
 const numbers = [1, 2, 3];
 const [first, , third] = numbers;
 console.log(first, third);
@@ -33,3 +33,25 @@ console.log(_first, restNumber);
 
 var { age, ...restUser } = user;
 console.log(age, restUser);
+
+// More examples
+var users = [
+  { user: "Name1" },
+  { user: "Name2" },
+  { user: "Name2" },
+  { user: "Name3" },
+];
+var names = users.map(({ user }) => user);
+
+console.log(names);
+
+var users = [
+  { user: "Name1" },
+  { user: "Name2", age: 2 },
+  { user: "Name2" },
+  { user: "Name3", age: 4 },
+];
+
+for (let { user, age = "DEFAULT AGE" } of users) {
+  console.log(user, age);
+}
