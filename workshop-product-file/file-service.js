@@ -4,28 +4,34 @@ const uuid = require("uuid");
 const FILENAME = "./product.json";
 
 const newProduct = (name, price) => {
-  const product = [
-    {
+  const products = loadAll();
+  const duplicatedProduct = products.find((product) => {
+    return product.name === name;
+  });
+
+  if (duplicatedProduct) {
+    console.log("Product name is duplicated.");
+  } else {
+    const newProduct = {
       id: uuid.v4(),
       name: name,
       price: price,
-    },
-  ];
-  fs.writeFileSync(FILENAME, JSON.stringify(product));
-  console.log("Add new product is done.");
+    };
+    products.push(newProduct);
+    fs.writeFileSync(FILENAME, JSON.stringify(products));
+    console.log("Add new product is done.");
+  }
 };
 
 const listAll = () => {
-  const dataBuffer = fs.readFileSync(FILENAME);
-  const products = JSON.parse(dataBuffer.toString());
+  const products = loadAll();
   products.forEach((product) => {
     console.log(product);
   });
 };
 
 const getById = (id) => {
-  const dataBuffer = fs.readFileSync(FILENAME);
-  const products = JSON.parse(dataBuffer.toString());
+  const products = loadAll();
   const foundProduct = products.find((product) => {
     return product.id === id;
   });
@@ -34,6 +40,12 @@ const getById = (id) => {
   } else {
     console.log("Product not found");
   }
+};
+
+const loadAll = () => {
+  const dataBuffer = fs.readFileSync(FILENAME);
+  const products = JSON.parse(dataBuffer.toString());
+  return products;
 };
 
 module.exports = { newProduct, listAll, getById };
