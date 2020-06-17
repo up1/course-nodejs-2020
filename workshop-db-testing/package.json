@@ -17,6 +17,7 @@
   "devDependencies": {
     "@types/jest": "^26.0.0",
     "jest": "^26.0.1",
-    "sequelize-mock": "^0.10.2"
+    "sequelize-mock": "^0.10.2",
+    "supertest": "^4.0.2"
   }
 }

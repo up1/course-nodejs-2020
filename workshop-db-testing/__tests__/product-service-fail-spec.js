@@ -1,29 +1,18 @@
 const productService = require("../src/services/product-service");
 
+jest.clearAllMocks();
 jest.mock("../src/models/products.js", () => () => {
   const SequelizeMock = require("sequelize-mock");
   const dbMock = new SequelizeMock();
   const myData = dbMock.define("products");
-  myData.$queueResult([
-    myData.build({
-      id: 1,
-      name: "my beer",
-      price: 111.55,
-      createdAt: "2020-01-01 13:30:31",
-    }),
-    myData.build({
-      id: 2,
-      name: "my food",
-      price: 1000.99,
-      createdAt: "2020-01-01 13:30:31",
-    }),
-  ]);
+  myData.$queueFailure("DB error");
   return myData;
 });
 
 describe("Test Sequelize Mocking", () => {
   it("Should get all products from mock", async () => {
-    const products = await productService.getAll();
-    expect(products.length).toBe(2);
+    await productService.getAll().catch((error) => {
+      expect(error.message).toEqual("DB error");
+    });
   });
 });

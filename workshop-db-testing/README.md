@@ -123,3 +123,5 @@ describe("Test Sequelize Mocking", () => {
 - Add new product
 - Delete product by id
 - Update product by id
+- API testing with [SuperTest](https://github.com/visionmedia/supertest)
+- Mocck database witht [sequelize-mock](https://sequelize-mock.readthedocs.io/en/stable/docs/mock-queries/)

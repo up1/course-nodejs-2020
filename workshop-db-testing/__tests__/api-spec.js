@@ -1,4 +1,7 @@
-const productService = require("../src/services/product-service");
+const request = require("supertest");
+const app = require("../src/app");
+
+afterAll(() => {});
 
 jest.mock("../src/models/products.js", () => () => {
   const SequelizeMock = require("sequelize-mock");
@@ -21,9 +24,18 @@ jest.mock("../src/models/products.js", () => () => {
   return myData;
 });
 
-describe("Test Sequelize Mocking", () => {
+describe("Test API /test", () => {
   it("Should get all products from mock", async () => {
-    const products = await productService.getAll();
-    expect(products.length).toBe(2);
+    const response = await request(app).get("/test");
+    expect(response.status).toBe(200);
+    expect(response.body.length).toBe(2);
+  });
+});
+
+describe("Test API /", () => {
+  it("Should hello world api", async () => {
+    const response = await request(app).get("/");
+    expect(response.status).toBe(200);
+    expect(response.text).toEqual("Hello World!");
   });
 });
