@@ -124,4 +124,5 @@ describe("Test Sequelize Mocking", () => {
 - Delete product by id
 - Update product by id
 - API testing with [SuperTest](https://github.com/visionmedia/supertest)
-- Mocck database witht [sequelize-mock](https://sequelize-mock.readthedocs.io/en/stable/docs/mock-queries/)
+- Mock database witht [sequelize-mock](https://sequelize-mock.readthedocs.io/en/stable/docs/mock-queries/)
+- Using [sequelize test helper](https://www.npmjs.com/package/sequelize-test-helpers)
