@@ -54,3 +54,9 @@ Start server
 ```
 $JWT_SECRET=xxx node src/index.js
 ```
+
+### Errror handling
+
+- Create Error classes
+- Create middleware
+- Add to express
