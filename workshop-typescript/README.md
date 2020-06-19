@@ -1,6 +1,6 @@
 ## Setup project Node.js witht TypeScript
 
-### 1. Install npm paackages
+### 1. Install npm packages
 
 ```
 $npm init -y
