@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@types/node": "^14.0.13",
-    "nodemon": "^2.0.4",
+    "nodemon": "^2.0.20",
     "rimraf": "^3.0.2",
     "ts-node": "^8.10.2"
   }
